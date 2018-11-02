@@ -10,7 +10,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - html_files:/usr/src/app/static:rw
+      - docser_files:/usr/src/app:rw
 
 volumes:
-  html_files:
+  docser_files:
