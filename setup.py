@@ -5,6 +5,8 @@ from setuptools import setup
 with open('README.rst', 'r') as fh:
     long_description = fh.read()
 
+with open('requirements.txt') as fh:
+    requirements = fh.readlines()
 
 setup(
     name='docser',
@@ -22,4 +24,5 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
     ],
+    install_requires=requirements
 )
