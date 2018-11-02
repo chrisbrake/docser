@@ -1,0 +1,22 @@
+sudo: false
+language: python
+python:
+- 3.6
+- 3.7
+install:
+- pip install -r requirements.txt
+- pip install -r requirements-dev.txt
+before_script:
+- flake8 .
+script:
+- coverage run -m pytest
+after_success:
+- coveralls
+deploy:
+  provider: pypi
+  user: chrisbrake
+  password:
+    secure: HEDasAfMUaIoDeiUWlFNsGyd7p4Tg5xKzH8xnSIVYTPHIHDllDeNVrTmNNyvsyf75uc8vGzzy7RnSB/xSIX/TJ0lX1wJCT/lleecig22hLhXkSmfofg+7zIQ2aSbPluKtb7cpEolS310Dd8e8DdYqDEnOZqPjEZXEXmHqnJAzk5BJQmaVQBWcrH20tVDhWTZIVRJFU44g32neVhKL7sKybJtw3DR3H1w1Y+ZtQywNOonHTxhsxeX+OGoVMbJq4VOKbhj84VjmLixfHrk9tobR5N7rCglZCpKMntiszaUV8l0YmbjFtyXghDqt/RuXeUQADYXk1AnZJcGDdP6qfRZcBe39o4sh67AXS1hqBwO4z4ltr4uQsSSH/b18ywSGnDGZL42PzgRvl7whSdpBjF0b+H0S9klS1idF7YCbXHz7JWuGMkzfiD19HHUjl/ut24WJf+bg1fuEsBBcZ5LstU2GNAubrNxL2ypGKPcr2LCvu30M2qQ3iuuFs89htIECQweren7h0+ry1aEzjj1p8tPVLZlweLQ3q0WcVlht9ArHeCX5PwCYW/Rfp59eO0bGtP5o99f8gHUKqv/SctHck/wruZWITs8HmJylSjf51TQOoVkIW2qyuRtKruQ8LtMv1/G5rLxWwcYzDR6B7jxr4zjI80af6Oe/CxfqdqbW51p3UM=
+  distributions: sdist
+  on:
+    tags: true
