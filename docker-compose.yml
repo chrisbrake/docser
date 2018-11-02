@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+
+  docser:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - html_files:/usr/src/app/static:rw
+
+volumes:
+  html_files:
