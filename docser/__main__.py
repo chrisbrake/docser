@@ -1,6 +1,7 @@
 import responder
 from marshmallow import Schema, fields
 
+__package__ = 'docser'
 from ._version import get_versions
 
 api = responder.API(title='Documentation Server',
